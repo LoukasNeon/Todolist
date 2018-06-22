@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> <strong>ToDoList</strong> </title>
+<meta charset="utf-8"/>
+<style>
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+ ul { 
+     counter-reset: section; 
+     list-style-type: none; 
+ }
+
+ li::before { 
+     counter-increment: section; 
+     content: counters(section,".") " ";
+ }
+ul {
+    border: 5px solid powderblue;
+    
+}
+</style>
+</head>
+<body align="center" bgcolor="#E6E6FA">
+     <div id="content">
+      <span><strong><u><font size=5> ToDoList</font></u></strong></span>
+	  <p id="demo1"></p>
+<ol>
+      <ul id="todo-list" class="relatedelements">
+          
+      </ul>
+</ol>
+      <span><strong><em><font size=4>Done<font></em></strong></span>
+	  <p id="demo2"></p>
+	  
+ <ol>  
+	 <ul id="done-list">
+      </ul>
+</ol>
+   </div>
+   <div class="num-relatedelements">
+</div>
+<p id="demo" ></p>
+
+
+
+<form id= "lk" style="border:5px dashed black;"">
+<fieldset>
+  <label>Add to do:<br>
+  <input type="text" name="firstname" id="myid" ></label>
+  <br>
+</fieldset>
+</form>
+
+
+<button id="press_me_button" type="button" class="button" onclick="myFunction()"><font >Add!</font></button>
+</body>
+  
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+</html> 
+<script>
+
+ 
+
+   
+				
+         function myFunction() {
+         var x, text;
+
+            // Get the value of the input field with id="myid"
+          x = document.getElementById("myid").value;
+
+              // If x is Not valid
+             if (x=="") {
+                         text = "Input not valid";
+		                alert('Plese add an element');
+						document.getElementById('lk').style.color = 'blue';
+						document.getElementById("demo").style.color = "#ff0000";
+						document.body.style.backgroundColor = "yellow";
+						document.getElementById("demo").innerHTML = text;
+		                return false;
+                }  
+				else  {
+				document.getElementById("demo").style.color = "#7FFF00";
+				document.getElementById('lk').style.color = "#7FFF00";
+				document.body.style.backgroundColor = "gray";
+              x = $('#myid').val();
+               $("#todo-list").append(`<li class="list-item">${x}</li>`);
+
+              
+               
+
+                    text = "Input OK";
+    }
+                    document.getElementById("demo").innerHTML = text;
+					
+					
+					var liList = document.getElementById("todo-list").getElementsByTagName("li");
+
+                    var largo = liList.length
+					
+	                document.getElementById("demo1").innerHTML = largo;
+		            
+					
+					
+	               return true;
+}
+		 $('#todo-list').on('click','li', function() {
+       let selectedElement = $(this);
+
+        selectedElement.hide(500);
+   
+   
+        $('#done-list')
+        .append($('<li></li>')
+       .text(selectedElement.text()));
+	   
+	   var liList = document.getElementById("done-list").getElementsByTagName("li");
+
+                    var Margo = liList.length
+		
+		            document.getElementById("demo2").innerHTML = Margo;
+	   
+	   });
+	   
+	   $('#done-list').on('click','li', function() {
+        let selectedElement = $(this);
+
+        selectedElement.hide(500);
+   
+   
+        $('#todo-list')
+       .append($('<li></li>')
+       .text(selectedElement.text()));
+   
+    
+     });
+
+	
+
+</script>	
