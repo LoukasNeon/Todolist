@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> <strong>ToDoList</strong> </title>
+<meta charset="utf-8"/>
+<style>
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+ ul { 
+     counter-reset: section; 
+     list-style-type: none; 
+ }
+
+ li::before { 
+     counter-increment: section; 
+     content: counters(section,".") " ";
+ }
+ul {
+    border: 5px solid powderblue;
+    
+}
+</style>
+</head>
+<body align="center" bgcolor="#E6E6FA">
+     <div id="content">
+      <span><strong><u><font size=5> ToDoList</font></u></strong></span>
+	  <p id="demo1"></p>
+<ol>
+      <ul id="todo-list" class="relatedelements">
+          
+      </ul>
+</ol>
+      <span><strong><em><font size=4>Done<font></em></strong></span>
+	  <p id="demo2"></p>
+	  
+ <ol>  
+	 <ul id="done-list">
+      </ul>
+</ol>
+   </div>
+   <div class="num-relatedelements">
+</div>
+<p id="demo" ></p>
+
+
+
+<form id= "lk" style="border:5px dashed black;"">
+<fieldset>
+  <label>Add to do:<br>
+  <input type="text" name="firstname" id="myid" ></label>
+  <br>
+</fieldset>
+</form>
+
+
+<button id="press_me_button" type="button" class="button" onclick="myFunction()"><font >Add!</font></button>
+</body>
+  
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+</html> 
+<script src="todolist.js">
+
+ 
+
+   
+
+</script>	
